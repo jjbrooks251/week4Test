@@ -46,6 +46,7 @@ public class ClassroomDateBaseRepository implements ClassroomRepository {
 		Classroom clas1 = util.getObjectForJSON(classroom, Classroom.class);
 
 		manager.persist(clas1);
+
 		return "{\"message\": \"New Account Created\"}";
 	}
 
@@ -55,7 +56,7 @@ public class ClassroomDateBaseRepository implements ClassroomRepository {
 		Classroom clas1 = manager.find(Classroom.class, id);
 
 		manager.remove(clas1);
-		return "{\"message\": \"Account Deleted\"}";
+		return "{\"message\": \"Classroom Deleted\"}";
 	}
 
 }
