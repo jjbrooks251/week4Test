@@ -4,4 +4,6 @@ public interface TraineeRepository {
 
 	String getAllTrainees();
 
+	String getTrainee(long id);
+
 }

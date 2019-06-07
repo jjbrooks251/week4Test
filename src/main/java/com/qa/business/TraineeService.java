@@ -4,4 +4,6 @@ public interface TraineeService {
 
 	String getAllTrainees();
 
+	String getTrainee(long id);
+
 }

@@ -29,4 +29,11 @@ public class TraineeDateBaseRepository implements TraineeRepository {
 		return util.getJSONForObject(trainee);
 	}
 
+	@Override
+	public String getTrainee(long id) {
+		Trainee train1 = manager.find(Trainee.class, id);
+
+		return util.getJSONForObject(train1);
+	}
+
 }

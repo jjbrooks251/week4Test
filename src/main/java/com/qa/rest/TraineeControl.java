@@ -3,6 +3,8 @@ package com.qa.rest;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 
 import com.qa.business.TraineeService;
 
@@ -14,8 +16,15 @@ public class TraineeControl {
 
 	@Path("/getAllTrainees")
 	@GET
-	// @Produces({"application/json"})
+	@Produces({ "application/json" })
 	public String getAllTrainees() {
 		return service.getAllTrainees();
+	}
+
+	@Path("/getTrainee/{id}")
+	@GET
+	@Produces({ "application/json" })
+	public String getTrainee(@PathParam("id") long id) {
+		return service.getTrainee(id);
 	}
 }

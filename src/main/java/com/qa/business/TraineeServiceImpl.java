@@ -15,4 +15,10 @@ public class TraineeServiceImpl implements TraineeService {
 		return repo.getAllTrainees();
 	}
 
+	@Override
+	public String getTrainee(long id) {
+		// TODO Auto-generated method stub
+		return repo.getTrainee(id);
+	}
+
 }
