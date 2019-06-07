@@ -6,4 +6,6 @@ public interface ClassroomService {
 
 	String getCLassrooms(long id);
 
+	String createClassroom(String classroom);
+
 }

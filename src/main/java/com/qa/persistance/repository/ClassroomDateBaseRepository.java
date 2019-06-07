@@ -7,10 +7,13 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
+import javax.transaction.Transactional.TxType;
 
 import com.qa.persistance.domain.Classroom;
 import com.qa.util.JSONUtil;
 
+@Transactional(TxType.SUPPORTS)
 @Default
 public class ClassroomDateBaseRepository implements ClassroomRepository {
 
@@ -35,6 +38,15 @@ public class ClassroomDateBaseRepository implements ClassroomRepository {
 		Classroom class1 = manager.find(Classroom.class, id);
 
 		return util.getJSONForObject(class1);
+	}
+
+	@Transactional(TxType.REQUIRED)
+	@Override
+	public String createClassroom(String classroom) {
+		Classroom clas1 = util.getObjectForJSON(classroom, Classroom.class);
+
+		manager.persist(clas1);
+		return "{\"message\": \"New Account Created\"}";
 	}
 
 }
