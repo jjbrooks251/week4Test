@@ -21,4 +21,10 @@ public class ClassroomServiceImpl implements ClassroomService {
 		return repo.getCLassroom(id);
 	}
 
+	@Override
+	public String createClassroom(String classroom) {
+		// TODO Auto-generated method stub
+		return repo.createClassroom(classroom);
+	}
+
 }

@@ -5,4 +5,6 @@ public interface ClassroomRepository {
 	String getAllClassrooms();
 
 	String getCLassroom(long id);
+
+	String createClassroom(String classroom);
 }
