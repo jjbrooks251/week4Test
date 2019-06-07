@@ -48,4 +48,31 @@ public class TraineeDateBaseRepository implements TraineeRepository {
 		return "{\"message\": \"Trainee Deleted\"}";
 	}
 
+	@Transactional(TxType.REQUIRED)
+	@Override
+	public String createTrainee(String trainee) {
+
+		Trainee tar1 = util.getObjectForJSON(trainee, Trainee.class);
+
+		manager.persist(tar1);
+
+		return "{\"message\": \"Trainee Deleted\"}";
+	}
+
+	@Transactional(TxType.REQUIRED)
+	@Override
+	public String updateTrainee(long id, String trainee) {
+
+		Trainee oldTra = manager.find(Trainee.class, id);
+		Trainee newTra = util.getObjectForJSON(trainee, Trainee.class);
+
+		if (oldTra != null) {
+			oldTra.setFirstName(newTra.getFirstName());
+			oldTra.setLastName(newTra.getLastName());
+
+			manager.persist(oldTra);
+		}
+		return "{\"message\": \"Trainee Updated\"}";
+	}
+
 }
