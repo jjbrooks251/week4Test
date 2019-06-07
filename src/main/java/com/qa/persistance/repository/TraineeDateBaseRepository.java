@@ -36,16 +36,25 @@ public class TraineeDateBaseRepository implements TraineeRepository {
 	public String getTrainee(long id) {
 		Trainee train1 = manager.find(Trainee.class, id);
 
-		return util.getJSONForObject(train1);
+		if (train1 != null) {
+
+			return util.getJSONForObject(train1);
+		} else {
+			return "{\"message\": \"Trainee doesn't exist\"}";
+		}
 	}
 
 	@Transactional(TxType.REQUIRED)
 	@Override
 	public String deleteTrainee(long id) {
-		Trainee clas1 = manager.find(Trainee.class, id);
+		Trainee tar1 = manager.find(Trainee.class, id);
 
-		manager.remove(clas1);
-		return "{\"message\": \"Trainee Deleted\"}";
+		if (tar1 != null) {
+			manager.remove(tar1);
+			return "{\"message\": \"Trainee Deleted\"}";
+		} else {
+			return "{\"message\": \"Trainee with this id doesn't exist\"}";
+		}
 	}
 
 	@Transactional(TxType.REQUIRED)
@@ -54,9 +63,16 @@ public class TraineeDateBaseRepository implements TraineeRepository {
 
 		Trainee tar1 = util.getObjectForJSON(trainee, Trainee.class);
 
-		manager.persist(tar1);
+		long id = tar1.getId();
 
-		return "{\"message\": \"Trainee Deleted\"}";
+		if (manager.find(Trainee.class, id) != null) {
+			return "{\"message\": \"Trainee with this id already exists\"}";
+		} else {
+
+			manager.persist(tar1);
+
+			return "{\"message\": \"Trainee Deleted\"}";
+		}
 	}
 
 	@Transactional(TxType.REQUIRED)
@@ -71,8 +87,11 @@ public class TraineeDateBaseRepository implements TraineeRepository {
 			oldTra.setLastName(newTra.getLastName());
 
 			manager.persist(oldTra);
-		}
-		return "{\"message\": \"Trainee Updated\"}";
-	}
+			return "{\"message\": \"Trainee Updated\"}";
 
+		} else {
+			return "{\"message\": \"Trainee does not exist\"}";
+		}
+
+	}
 }
