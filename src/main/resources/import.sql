@@ -1,6 +1,2 @@
-INSERT INTO Classroom (id, trainerFirst, trainerLast) VALUES (1, 'Matt, 'Hunt')
-INSERT INTO Classroom (id, trainerFirst, trainerLast) VALUES (2, 'Chester', 'Garner')
-INSERT INTO Trainee (id, firstName, lsatName) VALUES (1, 'Joe', 'Bloggs')
-INSERT INTO Trainee (id, firstName, lsatName) VALUES (2, 'Jane', 'Bloggs')
-INSERT INTO Trainee (id, firstName, lsatName) VALUES (3, 'David', 'Bloggs')
-INSERT INTO Trainee (id, firstName, lsatName) VALUES (4, 'Ceri', 'Bloggs')
+INSERT INTO CLASSROOM (id, trainerFirst, trainerLast) VALUES (1, 'Matt', 'Hunt')
+INSERT INTO CLASSROOM (id, trainerFirst, trainerLast) VALUES (2, 'Chester', 'Garner')

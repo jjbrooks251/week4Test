@@ -22,7 +22,7 @@ public class ClassroomDateBaseRepository implements ClassroomRepository {
 
 	@Override
 	public String getAllClassrooms() {
-		Query query = manager.createQuery("SELECT a FROM Account a");
+		Query query = manager.createQuery("SELECT a FROM Classroom a");
 
 		Collection<Classroom> accounts = (Collection<Classroom>) query.getResultList();
 
