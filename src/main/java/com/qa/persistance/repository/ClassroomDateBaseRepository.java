@@ -29,4 +29,12 @@ public class ClassroomDateBaseRepository implements ClassroomRepository {
 		return util.getJSONForObject(classroom);
 	}
 
+	@Override
+	public String getCLassroom(long id) {
+
+		Classroom class1 = manager.find(Classroom.class, id);
+
+		return util.getJSONForObject(class1);
+	}
+
 }
