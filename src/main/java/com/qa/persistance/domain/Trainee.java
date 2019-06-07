@@ -14,6 +14,7 @@ public class Trainee {
 	private String firstName;
 	@Column(length = 30)
 	private String lastName;
+	private long cId;
 	// @ManyToOne
 	// @JoinColumn(name = "id")
 	// private Classroom classroom;
