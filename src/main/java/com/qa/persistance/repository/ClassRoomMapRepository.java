@@ -54,4 +54,10 @@ public class ClassRoomMapRepository implements ClassroomRepository {
 		return null;
 	}
 
+	@Override
+	public String updateClassroom(long id, String classroom) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

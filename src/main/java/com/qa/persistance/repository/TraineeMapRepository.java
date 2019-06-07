@@ -48,4 +48,16 @@ public class TraineeMapRepository implements TraineeRepository {
 		return null;
 	}
 
+	@Override
+	public String createTrainee(String trainee) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String updateTrainee(long id, String trainee) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
