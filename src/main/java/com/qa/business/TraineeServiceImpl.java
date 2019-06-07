@@ -17,8 +17,12 @@ public class TraineeServiceImpl implements TraineeService {
 
 	@Override
 	public String getTrainee(long id) {
-		// TODO Auto-generated method stub
 		return repo.getTrainee(id);
+	}
+
+	@Override
+	public String deleteTrainee(long id) {
+		return repo.deleteTrainee(id);
 	}
 
 }

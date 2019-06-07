@@ -42,4 +42,10 @@ public class TraineeMapRepository implements TraineeRepository {
 		return null;
 	}
 
+	@Override
+	public String deleteTrainee(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

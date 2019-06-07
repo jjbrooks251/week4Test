@@ -7,10 +7,13 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
+import javax.transaction.Transactional.TxType;
 
 import com.qa.persistance.domain.Trainee;
 import com.qa.util.JSONUtil;
 
+@Transactional(TxType.SUPPORTS)
 @Default
 public class TraineeDateBaseRepository implements TraineeRepository {
 
@@ -34,6 +37,15 @@ public class TraineeDateBaseRepository implements TraineeRepository {
 		Trainee train1 = manager.find(Trainee.class, id);
 
 		return util.getJSONForObject(train1);
+	}
+
+	@Transactional(TxType.REQUIRED)
+	@Override
+	public String deleteTrainee(long id) {
+		Trainee clas1 = manager.find(Trainee.class, id);
+
+		manager.remove(clas1);
+		return "{\"message\": \"Trainee Deleted\"}";
 	}
 
 }
