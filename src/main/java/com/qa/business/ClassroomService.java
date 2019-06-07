@@ -10,4 +10,6 @@ public interface ClassroomService {
 
 	String deleteClassroom(long id);
 
+	String updateClassroom(long id, String classroom);
+
 }

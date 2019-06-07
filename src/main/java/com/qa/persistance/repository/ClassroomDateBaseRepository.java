@@ -59,4 +59,20 @@ public class ClassroomDateBaseRepository implements ClassroomRepository {
 		return "{\"message\": \"Classroom Deleted\"}";
 	}
 
+	@Transactional(TxType.REQUIRED)
+	@Override
+	public String updateClassroom(long id, String classroom) {
+		Classroom oldClas = manager.find(Classroom.class, id);
+		Classroom newClas = util.getObjectForJSON(classroom, Classroom.class);
+
+		if (oldClas != null) {
+			oldClas.setTrainerFirst(newClas.getTrainerFirst());
+			oldClas.setTrainerLast(newClas.getTrainerLast());
+
+			manager.persist(oldClas);
+		}
+
+		return "{\"message\": \"Classroom Updated\"}";
+	}
+
 }
