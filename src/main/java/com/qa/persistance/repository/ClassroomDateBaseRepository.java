@@ -49,4 +49,13 @@ public class ClassroomDateBaseRepository implements ClassroomRepository {
 		return "{\"message\": \"New Account Created\"}";
 	}
 
+	@Transactional(TxType.REQUIRED)
+	@Override
+	public String deleteClassroom(long id) {
+		Classroom clas1 = manager.find(Classroom.class, id);
+
+		manager.remove(clas1);
+		return "{\"message\": \"Account Deleted\"}";
+	}
+
 }

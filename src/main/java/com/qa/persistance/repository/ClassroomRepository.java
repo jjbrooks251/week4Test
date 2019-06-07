@@ -7,4 +7,6 @@ public interface ClassroomRepository {
 	String getCLassroom(long id);
 
 	String createClassroom(String classroom);
+
+	String deleteClassroom(long id);
 }
