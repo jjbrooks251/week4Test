@@ -14,16 +14,21 @@ public class Trainee {
 	private String firstName;
 	@Column(length = 30)
 	private String lastName;
+	private long cId;
+	// @ManyToOne
+	// @JoinColumn(name = "id")
+	// private Classroom classroom;
 
 	public Trainee() {
 		super();
 	}
 
-	public Trainee(long id, String firstName, String lastName) {
+	public Trainee(long id, String firstName, String lastName/* , Classroom classroom */) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		// this.classroom = classroom;
 	}
 
 	public long getId() {
@@ -49,5 +54,19 @@ public class Trainee {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
+	// public Classroom getcId() {
+	// return classroom;
+	// }
+	//
+	// public void setcId(Classroom classroom) {
+	// this.classroom = classroom;
+	// }
+
+	// @Override
+	// public String toString() {
+	// return "Trainee{" + "id=" + id + ", firstName='" + firstName + '\'' + ",
+	// lastName=" + lastName + '}';
+	// }
 
 }

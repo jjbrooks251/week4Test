@@ -15,15 +15,19 @@ public class Classroom {
 	@Column(length = 30)
 	private String trainerLast;
 
+	// @OneToMany(mappedBy = "classroom")
+	// private List<Trainee> trainee = new ArrayList<>();
+
 	public Classroom() {
 		super();
 	}
 
-	public Classroom(long id, String trainerFirst, String trainerLast) {
+	public Classroom(long id, String trainerFirst, String trainerLast/* , List<Trainee> trainee */) {
 		super();
 		this.id = id;
 		this.trainerFirst = trainerFirst;
 		this.trainerLast = trainerLast;
+		// this.trainee = trainee;
 	}
 
 	public long getId() {
@@ -49,5 +53,13 @@ public class Classroom {
 	public void setTrainerLast(String trainerLast) {
 		this.trainerLast = trainerLast;
 	}
+
+	// public List<Trainee> getTrainee() {
+	// return trainee;
+	// }
+	//
+	// public void setTrainee(List<Trainee> trainee) {
+	// this.trainee = trainee;
+	// }
 
 }
