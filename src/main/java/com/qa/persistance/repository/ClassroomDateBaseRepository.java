@@ -37,7 +37,12 @@ public class ClassroomDateBaseRepository implements ClassroomRepository {
 
 		Classroom class1 = manager.find(Classroom.class, id);
 
-		return util.getJSONForObject(class1);
+		if (class1 != null) {
+
+			return util.getJSONForObject(class1);
+		} else {
+			return "{\"message\": \"Classroom doesn't exist\"}";
+		}
 	}
 
 	@Transactional(TxType.REQUIRED)
@@ -45,9 +50,17 @@ public class ClassroomDateBaseRepository implements ClassroomRepository {
 	public String createClassroom(String classroom) {
 		Classroom clas1 = util.getObjectForJSON(classroom, Classroom.class);
 
-		manager.persist(clas1);
+		long id = clas1.getId();
 
-		return "{\"message\": \"New Account Created\"}";
+		if (manager.find(Classroom.class, id) != null) {
+			return "{\"message\": \"Classroom with this id already exists\"}";
+		} else {
+
+			manager.persist(clas1);
+
+			return "{\"message\": \"New Account Created\"}";
+		}
+
 	}
 
 	@Transactional(TxType.REQUIRED)
@@ -55,8 +68,12 @@ public class ClassroomDateBaseRepository implements ClassroomRepository {
 	public String deleteClassroom(long id) {
 		Classroom clas1 = manager.find(Classroom.class, id);
 
-		manager.remove(clas1);
-		return "{\"message\": \"Classroom Deleted\"}";
+		if (clas1 != null) {
+			manager.remove(clas1);
+			return "{\"message\": \"Classroom Deleted\"}";
+		} else {
+			return "{\"message\": \"Classroom with this id doesn't exist\"}";
+		}
 	}
 
 	@Transactional(TxType.REQUIRED)
@@ -70,9 +87,11 @@ public class ClassroomDateBaseRepository implements ClassroomRepository {
 			oldClas.setTrainerLast(newClas.getTrainerLast());
 
 			manager.persist(oldClas);
+			return "{\"message\": \"Classroom Updated\"}";
+		} else {
+			return "{\"message\": \"Classroom does not exist\"}";
 		}
 
-		return "{\"message\": \"Classroom Updated\"}";
 	}
 
 }
