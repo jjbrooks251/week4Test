@@ -17,14 +17,20 @@ public class ClassroomServiceImpl implements ClassroomService {
 
 	@Override
 	public String getCLassrooms(long id) {
-		// TODO Auto-generated method stub
+
 		return repo.getCLassroom(id);
 	}
 
 	@Override
 	public String createClassroom(String classroom) {
-		// TODO Auto-generated method stub
+
 		return repo.createClassroom(classroom);
+	}
+
+	@Override
+	public String deleteClassroom(long id) {
+
+		return repo.deleteClassroom(id);
 	}
 
 }

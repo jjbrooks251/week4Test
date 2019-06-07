@@ -8,4 +8,6 @@ public interface ClassroomService {
 
 	String createClassroom(String classroom);
 
+	String deleteClassroom(long id);
+
 }
