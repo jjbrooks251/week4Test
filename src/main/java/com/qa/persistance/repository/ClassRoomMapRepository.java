@@ -36,4 +36,10 @@ public class ClassRoomMapRepository implements ClassroomRepository {
 		return classroomMap.toString();
 	}
 
+	@Override
+	public String getCLassroom(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

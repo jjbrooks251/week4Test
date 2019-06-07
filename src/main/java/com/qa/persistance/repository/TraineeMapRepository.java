@@ -36,4 +36,10 @@ public class TraineeMapRepository implements TraineeRepository {
 		return traineeMap.toString();
 	}
 
+	@Override
+	public String getTrainee(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

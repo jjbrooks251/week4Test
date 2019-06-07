@@ -15,4 +15,10 @@ public class ClassroomServiceImpl implements ClassroomService {
 		return repo.getAllClassrooms();
 	}
 
+	@Override
+	public String getCLassrooms(long id) {
+		// TODO Auto-generated method stub
+		return repo.getCLassroom(id);
+	}
+
 }

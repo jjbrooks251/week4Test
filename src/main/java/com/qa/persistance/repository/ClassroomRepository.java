@@ -3,4 +3,6 @@ package com.qa.persistance.repository;
 public interface ClassroomRepository {
 
 	String getAllClassrooms();
+
+	String getCLassroom(long id);
 }
