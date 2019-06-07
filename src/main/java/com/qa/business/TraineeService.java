@@ -6,4 +6,6 @@ public interface TraineeService {
 
 	String getTrainee(long id);
 
+	String deleteTrainee(long id);
+
 }
