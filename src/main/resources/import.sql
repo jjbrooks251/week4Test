@@ -1,2 +1,6 @@
 INSERT INTO CLASSROOM (id, trainerFirst, trainerLast) VALUES (1, 'Matt', 'Hunt')
 INSERT INTO CLASSROOM (id, trainerFirst, trainerLast) VALUES (2, 'Chester', 'Garner')
+INSERT INTO TRAINEE (id, firstName, lastName) VALUES (1, 'Joe', 'Bloggs')
+INSERT INTO TRAINEE (id, firstName, lastName) VALUES (2, 'Jane', 'Bloggs')
+INSERT INTO TRAINEE (id, firstName, lastName) VALUES (3, 'David', 'Bloggs')
+INSERT INTO TRAINEE (id, firstName, lastName) VALUES (4, 'Ceri', 'Bloggs')

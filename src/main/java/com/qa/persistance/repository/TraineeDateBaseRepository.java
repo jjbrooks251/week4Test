@@ -8,11 +8,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import com.qa.persistance.domain.Classroom;
+import com.qa.persistance.domain.Trainee;
 import com.qa.util.JSONUtil;
 
 @Default
-public class ClassroomDateBaseRepository implements ClassroomRepository {
+public class TraineeDateBaseRepository implements TraineeRepository {
 
 	@Inject
 	JSONUtil util;
@@ -21,12 +21,12 @@ public class ClassroomDateBaseRepository implements ClassroomRepository {
 	EntityManager manager;
 
 	@Override
-	public String getAllClassrooms() {
-		Query query = manager.createQuery("SELECT a FROM Classroom a");
+	public String getAllTrainees() {
+		Query query = manager.createQuery("SELECT a FROM Trainee a");
 
-		Collection<Classroom> classroom = (Collection<Classroom>) query.getResultList();
+		Collection<Trainee> trainee = (Collection<Trainee>) query.getResultList();
 
-		return util.getJSONForObject(classroom);
+		return util.getJSONForObject(trainee);
 	}
 
 }
